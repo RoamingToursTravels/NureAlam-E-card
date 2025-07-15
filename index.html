@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Digital Business Card - Nure Alam, Managing Partner">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>E-Card - Digital Business Card</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="Photos/Rlogo.png">
+    <link rel="apple-touch-icon" href="Photos/Rlogo.png">
+    <link rel="shortcut icon" href="Photos/Rlogo.png">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="Photos/RTTLOGO.png" as="image">
+    <link rel="preload" href="Photos/employee.jpeg" as="image">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" as="style">
+    
+    <!-- External CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./ecard.css">
+</head>
+<body>
+    <!-- Dark Mode Toggle Button -->
+    <div class="dark-mode-toggle">
+        <button id="darkModeToggle" class="btn btn-dark-toggle" title="Toggle Dark Mode">
+            <i class="fas fa-moon"></i>
+        </button>
+    </div>
+
+    <div class="ecard-bg-pattern d-flex align-items-center justify-content-center min-vh-100">
+        <div class="ecard-main-card p-4">
+            <div class="ecard-top mb-3 animate-element" data-delay="0">
+                <img src="Photos/RTTLOGO.png" alt="Company Logo" class="ecard-logo mb-3 d-block mx-auto animate-element" data-delay="100" width="200" height="auto" loading="eager">
+                <div class="ecard-profile-section d-flex align-items-center animate-element" data-delay="200">
+                    <div class="ecard-photo-box me-3">
+                        <img src="Photos/employee.jpeg" alt="Nure Alam" class="ecard-photo-img animate-element" data-delay="300" width="80" height="80" loading="eager">
+                    </div>
+                    <div class="ecard-name-title flex-grow-1">
+                        <h2 class="ecard-name animate-element" data-delay="400">Nure Alam</h2>
+                        <div class="ecard-role animate-element" data-delay="500">Managing Partner at Roaming Tours and Travel</div>
+                        <div class="ecard-department animate-element" data-delay="600">MD</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ecard-contact-box p-3 my-3 animate-element" data-delay="700">
+                <div class="ecard-contact mb-2 animate-element" data-delay="800"><i class="fas fa-phone-alt me-2"></i>Office: 1329739725</div>
+                <div class="ecard-contact mb-2 animate-element" data-delay="900"><i class="fas fa-mobile-alt me-2"></i>Personal: 8801757903911</div>
+                <div class="ecard-contact animate-element" data-delay="950"><i class="fas fa-envelope me-2"></i>info@roamingbd.com</div>
+            </div>
+
+            <a href="#" class="ecard-save-btn btn-block my-3 text-center text-decoration-none animate-element" data-delay="1000" onclick="saveContact()"><i class="fas fa-download me-2"></i>Save this contact</a>
+
+            <div class="ecard-social-row d-flex justify-content-center align-items-center my-3 animate-element" data-delay="1100">
+                <a href="https://www.linkedin.com/in/nure-a-31479a32" target="_blank" class="ecard-social-btn animate-element" data-delay="1150"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.facebook.com/share/1AyBmmMde1/?mibextid=wwXIfr" target="_blank" class="ecard-social-btn animate-element" data-delay="1200"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" target="_blank" class="ecard-social-btn animate-element" data-delay="1250" style="display: none;"><i class="fab fa-github"></i></a>
+                <a href="#" target="_blank" class="ecard-social-btn animate-element" data-delay="1300" style="display: none;"><i class="fas fa-globe"></i></a>
+                <a href="#" onclick="openWhatsApp()" class="ecard-social-btn animate-element" data-delay="1350"><i class="fab fa-whatsapp"></i></a>
+            </div>
+
+            <div class="ecard-footer-box text-center mt-auto animate-element" data-delay="1400">
+                <div class="ecard-address mb-1 animate-element" data-delay="1450"><a href="https://maps.app.goo.gl/pSjC1TyKVZvMcXwP9" target="_blank" class="ecard-address-link">House-25 (2nd Floor), Road-02, Sector-03, opposite of Shopno, Rajlokkhi, Uttara, Dhaka, Bangladesh</a></div>
+                <div class="ecard-website animate-element" data-delay="1500"><a href="https://roamingbd.com/" target="_blank">roamingbd.com</a></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js" defer></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="./ecard.js" defer></script>
+</body>
+</html>
