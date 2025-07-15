@@ -183,6 +183,7 @@ body.dark-mode .btn-dark-toggle:hover {
     align-items: flex-start;
     gap: 0.5rem;
     line-height: 1.5;
+    color: var(--text-primary) !important;
 }
 
 .ecard-contact i {
@@ -190,6 +191,22 @@ body.dark-mode .btn-dark-toggle:hover {
     width: 20px;
     flex-shrink: 0;
     margin-top: 0.1rem;
+}
+
+/* Safari-specific fix for contact text color */
+.ecard-contact,
+.ecard-contact *,
+.ecard-contact a {
+    color: var(--text-primary) !important;
+    text-decoration: none !important;
+}
+
+/* Prevent Safari from styling phone numbers and emails as links */
+.ecard-contact {
+    -webkit-text-size-adjust: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 /* ===== BUTTON STYLES ===== */
