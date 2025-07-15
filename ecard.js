@@ -5,58 +5,11 @@
  * Description: Interactive functionality for digital business card
  */
 
-// ===== CONFIGURATION CONSTANTS =====
-/**
- * CENTRALIZED EMPLOYEE CONFIGURATION
- * 
- * To update employee information:
- * 1. Modify the values in this ECARD_CONFIG object
- * 2. All changes will automatically update throughout the entire application
- * 3. This includes the HTML display, vCard file generation, and social links
- * 
- * No need to edit HTML files or search for hardcoded values!
- */
-const ECARD_CONFIG = {
-    // Personal Information
-    PERSONAL: {
-        name: 'Nure Alam',
-        organization: 'Mind Mentor Overseas LTD.',
-        title: 'Managing Partner at Roaming Tours and Travel | Managing Director at Mind Mentor Overseas LTD.',
-        officePhone: '01329739725',
-        personalPhone: '8801757903911',
-        email: 'info@roamingbd.com',
-        website: 'https://roamingbd.com/',
-        address: {
-            street: 'House-25 (2nd Floor), Road-02, Sector-03, opposite of Shopno, Rajlokkhi, Uttara',
-            city: 'Dhaka',
-            country: 'Bangladesh'
-        }
-    },
-    
-    // Social Media Links
-    SOCIAL: {
-        linkedin: 'https://www.linkedin.com/in/nure-a-31479a32',
-        facebook: 'https://www.facebook.com/share/1AyBmmMde1/?mibextid=wwXIfr',
-        github: '',
-        portfolio: '',
-        whatsappNumber: '8801757903911'
-    },
-    
-    // File Paths
-    ASSETS: {
-        companyLogo: './Photos/RTTLOGO.png',
-        profileImage: './Photos/employee.jpeg',
-        lightBackground: './Photos/RoamingBackground.jpg',
-        darkBackground: './Photos/DarkMOOD.png',
-        favicon: './Photos/Rlogo.png'
-    },
-    
-    // Animation Settings
-    ANIMATION: {
-        notificationDuration: 3000,
-        transitionDelay: 100,
-        iconRotationDelay: 150
-    }
+// ===== CONSTANTS =====
+const ANIMATION_CONFIG = {
+    notificationDuration: 3000,
+    transitionDelay: 100,
+    iconRotationDelay: 150
 };
 
 // ===== CONTACT MANAGEMENT =====
@@ -64,23 +17,31 @@ const ECARD_CONFIG = {
  * Generates and downloads a vCard contact file, with an improved method for iOS.
  */
 function saveContact() {
-    const { PERSONAL } = ECARD_CONFIG;
+    // Hardcoded contact information
+    const name = 'Nure Alam';
+    const organization = 'Mind Mentor Overseas LTD.';
+    const title = 'Managing Partner at Roaming Tours and Travel | Managing Director at Mind Mentor Overseas LTD.';
+    const officePhone = '01329739725';
+    const personalPhone = '8801757903911';
+    const email = 'info@roamingbd.com';
+    const website = 'https://roamingbd.com/';
+    const address = 'House-25 (2nd Floor), Road-02, Sector-03, opposite of Shopno, Rajlokkhi, Uttara, Dhaka, Bangladesh';
 
-    const nameParts = PERSONAL.name.split(' ');
+    const nameParts = name.split(' ');
     const lastName = nameParts.pop() || '';
     const firstName = nameParts.join(' ');
 
     const vCard = `BEGIN:VCARD
 VERSION:3.0
-FN:${PERSONAL.name}
+FN:${name}
 N:${lastName};${firstName};;;
-ORG:${PERSONAL.organization}
-TITLE:${PERSONAL.title}
-TEL;TYPE=WORK,VOICE:${PERSONAL.officePhone}
-TEL;TYPE=CELL,VOICE:${PERSONAL.personalPhone}
-EMAIL:${PERSONAL.email}
-URL:${PERSONAL.website}
-ADR;TYPE=WORK:;;${PERSONAL.address.street};${PERSONAL.address.city};;${PERSONAL.address.country}
+ORG:${organization}
+TITLE:${title}
+TEL;TYPE=WORK,VOICE:${officePhone}
+TEL;TYPE=CELL,VOICE:${personalPhone}
+EMAIL:${email}
+URL:${website}
+ADR;TYPE=WORK:;;${address}
 END:VCARD`;
 
     // Safari, iOS, and Android devices have issues with the download attribute on blob URLs.
@@ -97,7 +58,7 @@ END:VCARD`;
         } else {
             // For other browsers, the download attribute works well.
             const downloadLink = document.createElement('a');
-            const fileName = `${PERSONAL.name.toLowerCase().replace(/\s+/g, '-')}-contact.vcf`;
+            const fileName = `${name.toLowerCase().replace(/\s+/g, '-')}-contact.vcf`;
             
             downloadLink.href = url;
             downloadLink.download = fileName;
@@ -121,7 +82,7 @@ END:VCARD`;
  * Opens WhatsApp chat with predefined message
  */
 function openWhatsApp() {
-    const { whatsappNumber } = ECARD_CONFIG.SOCIAL;
+    const whatsappNumber = '8801757903911';
     const message = 'Hello! I found your contact through your digital business card.';
     
     try {
@@ -173,7 +134,6 @@ function initDarkMode() {
  */
 function toggleDarkMode(body, icon, toggleButton) {
     const bgPattern = document.querySelector('.ecard-bg-pattern');
-    const { ANIMATION } = ECARD_CONFIG;
     
     if (!bgPattern) return;
     
@@ -191,7 +151,7 @@ function toggleDarkMode(body, icon, toggleButton) {
         setTimeout(() => {
             updateDarkModeIcon(icon, isDark);
             icon.style.transform = 'rotate(0deg)';
-        }, ANIMATION.iconRotationDelay);
+        }, ANIMATION_CONFIG.iconRotationDelay);
         
         // Save preference to localStorage
         localStorage.setItem('darkMode', isDark.toString());
@@ -199,15 +159,15 @@ function toggleDarkMode(body, icon, toggleButton) {
         // Restore background opacity
         setTimeout(() => {
             bgPattern.style.opacity = '1';
-        }, ANIMATION.transitionDelay);
+        }, ANIMATION_CONFIG.transitionDelay);
         
-    }, ANIMATION.transitionDelay);
+    }, ANIMATION_CONFIG.transitionDelay);
     
     // Add button press animation
     toggleButton.style.transform = 'scale(0.9)';
     setTimeout(() => {
         toggleButton.style.transform = '';
-    }, ANIMATION.iconRotationDelay);
+    }, ANIMATION_CONFIG.iconRotationDelay);
 }
 
 /**
@@ -271,7 +231,7 @@ function showNotification(message, type = 'info') {
                 }
             }, 300);
         }
-    }, ECARD_CONFIG.ANIMATION.notificationDuration);
+    }, ANIMATION_CONFIG.notificationDuration);
 }
 
 // ===== ANIMATION SYSTEM =====
@@ -307,110 +267,7 @@ function initSocialButtonEffects() {
     });
 }
 
-// ===== DYNAMIC CONTENT POPULATION =====
-/**
- * Populates HTML elements with data from ECARD_CONFIG
- * This ensures all employee information is centralized in one place
- */
-function populateEmployeeInfo() {
-    const { PERSONAL, SOCIAL, ASSETS } = ECARD_CONFIG;
-    
-    try {
-        // Update profile image
-        const profileImg = document.querySelector('.ecard-photo-img');
-        if (profileImg) {
-            profileImg.src = ASSETS.profileImage;
-            profileImg.alt = PERSONAL.name;
-        }
-        
-        // Update company logo
-        const companyLogo = document.querySelector('.ecard-logo');
-        if (companyLogo) {
-            companyLogo.src = ASSETS.companyLogo;
-        }
-        
-        // Update name and title
-        const nameElement = document.querySelector('.ecard-name');
-        if (nameElement) {
-            nameElement.textContent = PERSONAL.name;
-        }
-        
-        const roleElement = document.querySelector('.ecard-role');
-        if (roleElement) {
-            roleElement.textContent = PERSONAL.title;
-        }
-        
-        // Update contact information
-        const contactElements = document.querySelectorAll('.ecard-contact');
-        if (contactElements.length >= 3) {
-            // Office phone
-            const officePhone = contactElements[0];
-            if (officePhone) {
-                officePhone.innerHTML = `<i class="fas fa-phone-alt me-2"></i>Office: ${PERSONAL.officePhone}`;
-            }
-            
-            // Personal phone
-            const personalPhone = contactElements[1];
-            if (personalPhone) {
-                personalPhone.innerHTML = `<i class="fas fa-mobile-alt me-2"></i>Personal: ${PERSONAL.personalPhone}`;
-            }
-            
-            // Email
-            const emailElement = contactElements[2];
-            if (emailElement) {
-                emailElement.innerHTML = `<i class="fas fa-envelope me-2"></i>${PERSONAL.email}`;
-            }
-        }
-        
-        // Update social media links
-        const socialLinks = document.querySelectorAll('.ecard-social-btn');
-        if (socialLinks.length >= 4) {
-            socialLinks[0].href = SOCIAL.linkedin; // LinkedIn
-            socialLinks[1].href = SOCIAL.facebook; // Facebook
-            
-            // Hide GitHub link if empty
-            if (SOCIAL.github) {
-                socialLinks[2].href = SOCIAL.github;
-                socialLinks[2].style.display = '';
-            } else {
-                socialLinks[2].style.display = 'none';
-            }
-            
-            // Hide Portfolio link if empty
-            if (SOCIAL.portfolio) {
-                socialLinks[3].href = SOCIAL.portfolio;
-                socialLinks[3].style.display = '';
-            } else {
-                socialLinks[3].style.display = 'none';
-            }
-        }
-        
-        // Update address
-        const addressLink = document.querySelector('.ecard-address-link');
-        if (addressLink) {
-            const fullAddress = `${PERSONAL.address.street}, ${PERSONAL.address.city}, ${PERSONAL.address.country}`;
-            addressLink.textContent = fullAddress;
-        }
-        
-        // Update website
-        const websiteLink = document.querySelector('.ecard-website a');
-        if (websiteLink) {
-            websiteLink.href = PERSONAL.website;
-            websiteLink.textContent = PERSONAL.website.replace('https://', '').replace('http://', '');
-        }
-        
-        // Update page title and meta description
-        document.title = `E-Card - ${PERSONAL.name}`;
-        const metaDescription = document.querySelector('meta[name="description"]');
-        if (metaDescription) {
-            metaDescription.content = `Digital Business Card - ${PERSONAL.name}, ${PERSONAL.title}`;
-        }
-        
-    } catch (error) {
-        console.error('Error populating employee info:', error);
-        showNotification('Error loading employee information.', 'warning');
-    }
-}
+
 
 // ===== INITIALIZATION =====
 /**
@@ -419,9 +276,6 @@ function populateEmployeeInfo() {
  */
 function initECard() {
     try {
-        // Populate employee information from config
-        populateEmployeeInfo();
-        
         // Initialize core functionality
         initDarkMode();
         initAnimations();
@@ -455,6 +309,6 @@ if (typeof window !== 'undefined') {
         saveContact,
         openWhatsApp,
         showNotification,
-        config: ECARD_CONFIG
+        config: ANIMATION_CONFIG
     };
 }
