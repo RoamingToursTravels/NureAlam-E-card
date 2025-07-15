@@ -183,7 +183,6 @@ body.dark-mode .btn-dark-toggle:hover {
     align-items: flex-start;
     gap: 0.5rem;
     line-height: 1.5;
-    color: var(--text-primary) !important;
 }
 
 .ecard-contact i {
@@ -193,19 +192,23 @@ body.dark-mode .btn-dark-toggle:hover {
     margin-top: 0.1rem;
 }
 
-/* Safari-specific fix for contact text color */
-.ecard-contact,
-.ecard-contact *,
-.ecard-contact a {
+/* Fix for Safari phone number auto-detection */
+.ecard-contact a,
+.ecard-contact a:link,
+.ecard-contact a:visited,
+.ecard-contact a:hover,
+.ecard-contact a:active {
     color: var(--text-primary) !important;
     text-decoration: none !important;
 }
 
-/* Prevent Safari from styling phone numbers and emails as links */
+/* Alternative: Disable phone number detection entirely */
 .ecard-contact {
-    -webkit-text-size-adjust: none;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
     user-select: none;
 }
 
