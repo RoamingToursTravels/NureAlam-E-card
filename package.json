@@ -1,0 +1,130 @@
+{
+  "name": "nure-alam-ecard",
+  "version": "3.0.0",
+  "description": "Professional digital business card for Nure Alam with modern design, dark mode, and comprehensive contact features",
+  "main": "index.html",
+  "scripts": {
+    "start": "python3 -m http.server 8000",
+    "serve": "python3 -m http.server 8000",
+    "dev": "python3 -m http.server 8000",
+    "preview": "python3 -m http.server 8080",
+    "validate": "echo 'Validating HTML, CSS, and JS files...' && npm run validate:html && npm run validate:css && npm run validate:js",
+    "validate:html": "echo 'HTML validation would require additional tools'",
+    "validate:css": "echo 'CSS validation would require additional tools'",
+    "validate:js": "echo 'JavaScript validation would require additional tools'",
+    "lint": "echo 'Linting would require ESLint setup'",
+    "format": "echo 'Formatting would require Prettier setup'",
+    "test": "echo 'No tests specified - this is a static website'",
+    "build": "echo 'No build process required - static files ready for deployment'",
+    "deploy": "echo 'Deploy to your preferred hosting service'",
+    "clean": "echo 'No build artifacts to clean'",
+    "check": "echo 'Running basic checks...' && ls -la *.html *.css *.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RoamingToursTravels/NureAlam-E-card.git"
+  },
+  "keywords": [
+    "digital-business-card",
+    "ecard",
+    "vcard",
+    "contact-card",
+    "professional",
+    "responsive",
+    "dark-mode",
+    "modern-ui",
+    "mobile-friendly",
+    "safari-compatible",
+    "whatsapp-integration",
+    "social-media",
+    "contact-sharing",
+    "business-card",
+    "digital-identity"
+  ],
+  "author": {
+    "name": "Nure Alam",
+    "email": "nurealam.tours@gmail.com",
+    "url": "https://github.com/RoamingToursTravels"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RoamingToursTravels/NureAlam-E-card/issues"
+  },
+  "homepage": "https://github.com/RoamingToursTravels/NureAlam-E-card#readme",
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ],
+  "devDependencies": {},
+  "dependencies": {},
+  "files": [
+    "index.html",
+    "ecard.css",
+    "ecard.js",
+    "images/",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "config": {
+    "port": "8000",
+    "host": "localhost"
+  },
+  "metadata": {
+    "title": "Nure Alam - Digital Business Card",
+    "description": "Professional digital business card featuring modern design, comprehensive contact options, and cross-platform compatibility",
+    "version": "3.0.0",
+    "lastUpdated": "2024-12-19",
+    "features": [
+      "Responsive Design",
+      "Dark/Light Mode Toggle",
+      "vCard Download",
+      "WhatsApp Integration",
+      "Social Media Links",
+      "Safari Compatibility",
+      "Mobile Optimized",
+      "Zero Dependencies",
+      "SEO Friendly",
+      "Accessibility Features"
+    ],
+    "technologies": [
+      "HTML5",
+      "CSS3",
+      "Vanilla JavaScript",
+      "CSS Grid",
+      "CSS Flexbox",
+      "CSS Variables",
+      "Local Storage",
+      "Progressive Enhancement"
+    ],
+    "compatibility": {
+      "browsers": [
+        "Chrome 90+",
+        "Firefox 88+",
+        "Safari 14+",
+        "Edge 90+",
+        "iOS Safari 14+",
+        "Chrome Mobile 90+"
+      ],
+      "devices": [
+        "Desktop",
+        "Tablet",
+        "Mobile",
+        "iOS",
+        "Android"
+      ]
+    },
+    "performance": {
+      "loadTime": "< 1 second",
+      "size": "< 100KB total",
+      "dependencies": "Zero external",
+      "caching": "Browser optimized"
+    }
+  }
+}
